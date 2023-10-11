@@ -41,14 +41,14 @@ class MySchedulerService {
 
         val bookingInfo =
             "https://wwwexpediacom.integration.sb.karmalab.net/trips/egti-PRY-NZV-TBS8/details/OTU2MWNlMmEtYzMxNS01M2I0LWExNmItODNkNjM3YzU0YTg4O2Q5YmQ5ZTdmLTE0MzMtNDRkOC04MDk3LTc3MDQ5Mjk4YmI4Nl8w"
-
+        val bookingInfo2 = "https://wwwexpediacom.integration.sb.karmalab.net/trips/egti-6KQ-FII-329T/details/NjU3YWJhZGUtZmQ3MS01ZWM1LWE3OTUtMWJkMzVlYTMzNTA1OzkzYmY3YmZlLWU0MjktNGU2Zi04MWM1LTkxOWMzNTdkMGUxYV8w"
         val whatsappMessage = "\uD83C\uDF1F Hello Traveler! \uD83C\uDF1F\n" +
                 "\n" +
                 "We hope you're excited about your upcoming trip with us! Your comfort and satisfaction are our top priorities, and we're here to assist you at any time.\n" +
                 "\n" +
                 "\uD83E\uDD14 Have any questions, concerns, or issues that you'd like to discuss? No worries, we're just a click away! ✨\n" +
                 "\n" +
-                "➡\uFE0F [Customer Support & Issue Resolution]($bookingInfo)\n" +
+                "➡\uFE0F [Customer Support & Issue Resolution]($bookingInfo2)\n" +
                 "\n" +
                 "If the link doesn't work for you, you can also find the solution you need on our trips page. Just visit your trips, and you'll discover a friendly Virtual Agent/Chat Bot ready to help you out. \uD83E\uDD16\n" +
                 "\n" +
@@ -73,7 +73,7 @@ class MySchedulerService {
                 "    <p>If you have any questions, concerns, or issues that you'd like to discuss regarding your booking, we're here to assist you every step of the way.</p>\n" +
                 "    <p><strong><h3>Option 1: Fast & Convenient Resolution</h3></strong></p>\n" +
                 "    <p>You can quickly and conveniently resolve any issues or inquiries by clicking the following link:</p>\n" +
-                "    <p><a href=\"$bookingInfo\">Customer Support & Issue Resolution</a></p>\n" +
+                "    <p><a href=\"$bookingInfo2\">Customer Support & Issue Resolution</a></p>\n" +
                 "    <p><strong><h3>Option 2: Personalized Assistance via Virtual Agent</h3></strong></p>\n" +
                 "    <p>In case the link doesn't work for you, we have a Virtual Agent/Chat Bot ready to assist you right from your Trips page. Visit your trips, and you'll find the Chat Bot, always at your service.</p>\n" +
                 "    <p><a href=\"https://wwwexpediacom.integration.sb.karmalab.net/trips\">Trips Page</a></p>\n" +
@@ -103,12 +103,13 @@ class MySchedulerService {
     }
 
     fun phoneCall(phone: String) {
-        val accountSid = "AC4c74464b614c087e7850ab06ded8ddb1"
-        val authToken = "2672f66a57c5f0896b4762a6bb480531"
+        val accountSid = "<Twilio-AccountSid>" // Replace this
+        val authToken = "<Twilio-Auth-Token>" // Replace this
+
 
         Twilio.init(accountSid, authToken)
 
-        val from = PhoneNumber("+917379120054")
+        val from = PhoneNumber("<Verified-Outgoing-Caller-ID>") // Replace this
         val to = PhoneNumber(phone)
 
         val call = Call.creator(
@@ -141,8 +142,8 @@ class MySchedulerService {
     }
 
     fun whatsappNotification(phone: String, messageTemplate: String) {
-        val accountSid = "AC4c74464b614c087e7850ab06ded8ddb1"
-        val authToken = "2672f66a57c5f0896b4762a6bb480531"
+        val accountSid = "<Twilio-AccountSid>" // Replace this
+        val authToken = "<Twilio-Auth-Token>" // Replace this
 
         Twilio.init(accountSid, authToken)
 
@@ -160,8 +161,8 @@ class MySchedulerService {
 
     fun sendEmail(email: String, messageTemplate: String) {
 
-        val username = "saxenaekansh7@gmail.com" // Your email address
-        val password = "uwmiblxobldiycro" // Your email password
+        val username = "<Your-Email-Address>" // Your email address
+        val password = "<Your-App-Password>" // Your email password
         val to = email // Recipient's email address
 
         val props = Properties()
